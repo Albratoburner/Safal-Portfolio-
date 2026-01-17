@@ -143,26 +143,19 @@ This project includes a GitHub Actions workflow for automated deployment to GitH
 
 The CI/CD pipeline performs:
 1. **Checkout code** from the repository
-2. **Setup Node.js** environment
-3. **Install dependencies** from package.json
-4. **Validate HTML** structure
-5. **Check file sizes** for performance monitoring
-6. **Deploy to GitHub Pages** automatically
+2. **Check file sizes** for performance monitoring
+3. **Deploy to GitHub Pages** automatically
 
-### Manual Deployment
+### Local Development
 
-If you prefer manual deployment:
+For local validation (optional):
 
 ```bash
 # Install dependencies
 npm install
 
-# Run validation
+# Run HTML validation
 npm run lint
-
-# Deploy manually (if using other hosting)
-# For local testing, use:
-python3 -m http.server 8000
 ```
 
 ## 📊 Performance
