@@ -1,5 +1,8 @@
 # Portfolio Website
 
+[![Deploy to GitHub Pages](https://github.com/yourusername/portfolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/yourusername/portfolio/actions/workflows/deploy.yml)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Deployed-blue)](https://yourusername.github.io/portfolio)
+
 A modern, responsive portfolio website showcasing skills in AI, Machine Learning, Data Science, and Web Development.
 
 ## 🚀 Features
@@ -22,10 +25,15 @@ A modern, responsive portfolio website showcasing skills in AI, Machine Learning
 
 ```
 portfolio/
-├── index.html          # Main HTML file
-├── styles.css          # Stylesheet
-├── script.js           # JavaScript functionality
-└── README.md           # This file
+├── index.html              # Main HTML file
+├── styles.css              # Stylesheet
+├── script.js               # JavaScript functionality
+├── README.md               # Project documentation
+├── package.json            # Node.js dependencies
+├── .gitignore              # Git ignore rules
+└── .github/
+    └── workflows/
+        └── deploy.yml      # GitHub Actions CI/CD pipeline
 ```
 
 ## 🚀 Getting Started
@@ -112,26 +120,50 @@ This project includes a GitHub Actions workflow for automated deployment to GitH
 ### Workflow Features
 
 - **Automatic Deployment**: Deploys on every push to main branch
-- **Build Check**: Validates HTML, CSS, and JS
-- **SEO Check**: Runs basic SEO validation
-- **Performance**: Checks for large files and optimization opportunities
+- **Code Validation**: HTML, CSS, and JavaScript linting
+- **File Size Checks**: Monitors asset sizes
+- **SEO Validation**: Basic HTML validation
 
 ### Setting up CI/CD
 
-1. **Enable GitHub Pages** (as described above)
+1. **Push your code to GitHub**
+   ```bash
+   git add .
+   git commit -m "Add portfolio with CI/CD"
+   git push origin main
+   ```
 
-2. **The workflow file** (`.github/workflows/deploy.yml`) is automatically triggered
+2. **Enable GitHub Pages**
+   - Go to repository Settings → Pages
+   - Select "GitHub Actions" as source
 
-3. **Monitor deployments** in the Actions tab of your repository
+3. **Monitor deployments** in the Actions tab
 
 ### Workflow Details
 
-The CI/CD pipeline:
-1. Triggers on push to `main` branch
-2. Sets up Node.js environment
-3. Installs dependencies (if any)
-4. Runs basic validation
-5. Deploys to GitHub Pages
+The CI/CD pipeline performs:
+1. **Checkout code** from the repository
+2. **Setup Node.js** environment
+3. **Install dependencies** from package.json
+4. **Validate HTML** structure
+5. **Check file sizes** for performance monitoring
+6. **Deploy to GitHub Pages** automatically
+
+### Manual Deployment
+
+If you prefer manual deployment:
+
+```bash
+# Install dependencies
+npm install
+
+# Run validation
+npm run lint
+
+# Deploy manually (if using other hosting)
+# For local testing, use:
+python3 -m http.server 8000
+```
 
 ## 📊 Performance
 
