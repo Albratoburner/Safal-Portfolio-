@@ -135,7 +135,8 @@ This project includes a GitHub Actions workflow for automated deployment to GitH
 
 2. **Enable GitHub Pages**
    - Go to repository Settings → Pages
-   - Select "GitHub Actions" as source
+   - Select "GitHub Actions" as the source
+   - The workflow will automatically deploy your site
 
 3. **Monitor deployments** in the Actions tab
 
@@ -144,7 +145,8 @@ This project includes a GitHub Actions workflow for automated deployment to GitH
 The CI/CD pipeline performs:
 1. **Checkout code** from the repository
 2. **Check file sizes** for performance monitoring
-3. **Deploy to GitHub Pages** automatically
+3. **Build and upload** pages artifact
+4. **Deploy to GitHub Pages** using official GitHub Actions
 
 ### Local Development
 
