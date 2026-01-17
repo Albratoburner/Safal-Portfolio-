@@ -133,7 +133,7 @@ document.querySelector('.contact-form').addEventListener('submit', function(e) {
     const formData = new FormData(form);
     const successMessage = document.getElementById('success-message');
 
-    fetch(form.action, {
+    fetch('https://formspree.io/f/mykkkoyk', {
         method: 'POST',
         body: formData,
         headers: {

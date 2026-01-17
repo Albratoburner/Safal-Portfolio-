@@ -1,0 +1,47 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Install dependencies
+      run: |
+        npm init -y
+        npm install --save-dev html-validate stylelint eslint
+
+    - name: Validate HTML
+      run: npx html-validate *.html
+
+    - name: Validate CSS
+      run: npx stylelint styles.css || true
+
+    - name: Validate JavaScript
+      run: npx eslint script.js || true
+
+    - name: Check file sizes
+      run: |
+        echo "Checking file sizes..."
+        find . -name "*.html" -o -name "*.css" -o -name "*.js" | xargs ls -lh
+
+    - name: Deploy to GitHub Pages
+      if: github.ref == 'refs/heads/main'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./
+        cname: ${{ secrets.CNAME || '' }}
